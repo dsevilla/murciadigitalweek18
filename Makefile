@@ -5,14 +5,9 @@
 TARGETS = $(patsubst %.tex,%.pdf,slides.tex)
 TARGETS_NOEXT = $(patsubst %.pdf,%,$(TARGETS))
 DEPS_DIR = .deps
-LATEXMK = latexmk -recorder -use-make -deps
+LATEXMK = latexmk -recorder -xelatex -dvi- -ps- -use-make -deps
 
 all: $(TARGETS)
-	cp slides.pdf ..
-
-slides-dir: $(TARGETS)
-	-rm -rf slides-dir && mkdir slides-dir
-	convert -alpha remove -density 200 $< slides-dir/jisbd17-\%03d.png
 
 define pdfrule
 $(1).pdf: $(1).tex

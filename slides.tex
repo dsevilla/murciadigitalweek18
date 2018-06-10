@@ -66,7 +66,7 @@
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-%\usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
@@ -80,6 +80,27 @@
 %\usepackage{pifont}
 %\usepackage{keystroke}
 %\usepackage{etoolbox}
+
+
+\definecolor{mdwrojo}{HTML}{CC1A4C}
+\setbeamercolor{titlelike}{fg=mdwrojo} % titulo
+\setbeamercolor{frametitle}{fg=mdwrojo} % titulo
+\setbeamercolor{section in toc}{fg=mdwrojo} % titulo
+\setbeamercolor{subsection in toc}{fg=mdwrojo} % titulo
+% https://tex.stackexchange.com/questions/185742/i-need-to-change-color-of-beamer-itemize-and-subitem-separately
+%\setbeamercolor{itemize item}{fg=mdwrojo}
+\setbeamercolor{itemize subitem}{fg=mdwrojo}
+\setbeamercolor{block title}{bg=mdwrojo,fg=white}
+\setbeamercolor{block body}{bg=mdwrojo!20}
+
+%\setbeamercolor{block title}{bg=blue!30,fg=black}
+%\setbeamercolor{block body}{bg=blue!20,fg=black}
+%\setbeamercolor{block title alerted}{bg=red!30,fg=black}
+%\setbeamercolor{block body alerted}{bg=red!20,fg=black}
+
+\newcommand*{\murciabullet}{\kern1em\includegraphics[height=1em]{img/mdw-bullet}}
+\setbeamertemplate{itemize item}{\murciabullet}
+
 
 % Language Definitions for CYPHER
 \lstdefinelanguage{cypher}{
@@ -103,7 +124,7 @@ frame=tblr, % single, tb, ltrb % boxed listings, en mayusculas = doble linea
 framerule=0pt,
 tabsize=4, % tabulador = 2 espacios
 captionpos=b,
-backgroundcolor=\color{yellow!20},
+backgroundcolor=\color{mdwrojo!20},
 breaklines=true,
 %backgroundcolor=\color{white},
 %numbers=left, numberstyle=\tiny, stepnumber=2, numbersep=10pt,
@@ -172,7 +193,7 @@ morestring=[b]"
 
 %% Macros comunes
 \newcommand{\hide}[1]{}
-\newcommand{\ra}{{\color{blue} $\Rightarrow${}~{}}}
+\newcommand{\ra}{{\color{mdwrojo} $\Rightarrow${}~{}}}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle}
@@ -210,17 +231,12 @@ morestring=[b]"
 %{Fira Mono}
 {Source Code Pro}
 
-\setbeamercolor{block title}{bg=blue!30,fg=black}
-\setbeamercolor{block body}{bg=blue!20,fg=black}
-\setbeamercolor{block title alerted}{bg=red!30,fg=black}
-\setbeamercolor{block body alerted}{bg=red!20,fg=black}
-
 \newsavebox{\mysubpic}
 
 \usebackgroundtemplate{
 %\setbox{\mysubpic}{
   \sbox{\mysubpic}{%
-    \begin{tikzpicture}[remember picture,line width=1em,blue!30] %sub-picture
+    \begin{tikzpicture}[remember picture,line width=1em,mdwrojo!30] %sub-picture
       \foreach \s in {1,...,\value{framenumber}}{
         \tikzmath{
           int \shift;
@@ -310,10 +326,13 @@ Universidad de Murcia\\
 %     \tableofcontents[currentsection,currentsubsection]
 %   \end{frame}
 % }
-
+{
+  \usebackgroundtemplate{%
+    \vbox to \paperheight{\vfil\includegraphics[width=\paperwidth]{img/mdw}\vfil}}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
+}
 
 \section{Introducción}
 
@@ -348,10 +367,270 @@ Universidad de Murcia\\
   \end{itemize}
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Índice}
-% \tableofcontents[]
-% \end{frame}
+\section{Data Science}
+
+\begin{frame}
+  \frametitle{Data Science / Big Data}
+  \framesubtitle{Howe, 2013}
+\vspace*{-.5em}
+  \begin{quote}
+    ``Next sexy job'' \\
+
+    ``The ability to take data—to be able to understand it, to
+process it, to extract value from it, to visualize it, to
+communicate it—that’s going to be a hugely important skill.'' \\
+
+  \hspace*\fill{\small--- Hal Varian, Google}
+  \end{quote}
+
+    \begin{quote}
+``Data science is the civil engineering of data. Its acolytes
+possess a practical knowledge of tools \& materials, coupled
+with a theoretical understanding of what's possible.''\\
+  \hspace*\fill{\small--- Mike Driscoll, Metamarkets}
+
+  \end{quote}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data Science}
+\vspace*{-1em}
+  \begin{center}
+    Drew Conway Venn Diagram of Big
+    Data:\footnote{\url{http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram}}\\
+    \includegraphics[width=.5\textwidth]{img/Data_Science_VD}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data Science}
+
+  Mike Driscoll’s three sexy skills of data geeks
+
+  \begin{itemize}
+  \item Statistics
+    \begin{itemize}
+    \item traditional analysis
+\end{itemize}
+\item Data Munging
+  \begin{itemize}
+  \item parsing, scraping, and formatting data
+\end{itemize}
+\item Visualization
+  \begin{itemize}
+  \item graphs, tools, etc.
+\end{itemize}
+\end{itemize}
+
+\begin{block}{}
+  \begin{center}
+    (data wrangling, data jujitsu, data munging)
+  \end{center}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Data Science}
+
+  \begin{tikzpicture}
+    \node[anchor=south west] (bigd) at (0,0) {Big Data / Data Science};
+    %\draw (0,0) rectangle (10,-1);
+    \fill[red!50] (0.02,-0.02) rectangle (7.98,-0.98);
+    \fill[blue!50] (8.00,-0.02) rectangle (9.98,-0.98);
+  \end{tikzpicture}
+
+ \vspace*{1em}
+\tikz{ \fill[red!50] (0,0) rectangle (1,-.5); } Manipulación de datos (80\%)\\
+\tikz{ \fill[blue!50] (0,0) rectangle (1,-.5); } ¡Ciencia!\\
+\end{frame}
+
+
+\begin{frame}[plain]
+%  \frametitle{Data Science}
+  \includegraphics[width=\textwidth]{img/gray-grep}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Data Science}
+\begin{itemize}
+\item Una gran parte del ``Data Science'' implica el manejo de grandes
+  cantidades de datos
+  \begin{itemize}
+  \item De hecho, se pasa un {\bf 80-90}\% del tiempo importando datos,
+    organizándolos para la optimización, etc.
+  \item Estudiaremos las {\bf abstracciones} del {\bf modelado de datos},
+    así como las herramientas ({\bf bases de datos}) disponibles
+    \begin{itemize}
+    \item {\bf ¿cómo se organizan y modelan los datos?}
+    \item {\bf ¿cómo se consultan esos datos de forma eficiente?}
+    \item {\bf ¿cómo se tratan los datos heterogéneos?}
+    \item {\bf ¿cómo se gestionan cantidades de datos que no caben en una
+        máquina ({\itshape big data}, datos distribuidos)?}
+    \item {\bf Modelado relacional, índices, desnormalización, duplicación,
+        agregación}
+    \item \ldots
+
+    \end{itemize}
+  \item Estudiaremos modelado de datos SQL, NoSQL y NewSQL
+
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{quote}
+{\Large ``80\% of analytics is sums and averages''} \\
+
+  \hspace*\fill{\small--- Aaron Kimball, wibidata}
+  \end{quote}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{quote}
+
+    {\Large ``...no greater barrier to effective data management will exist
+      than the variety of incompatible data formats, non-aligned data
+      structures, and inconsistent data
+      semantics.''} \\
+
+\hspace*\fill{\small--- Doug Laney, “3-D Data Management: Controlling Data
+  Volume, Velocity and Variety”, Gartner, 2001}
+  \end{quote}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{¿De dónde viene el ``Big Data''?}
+\begin{itemize}
+\item Se exprimen todos los recursos disponibles
+  \begin{itemize}
+  \item {\em Stream de clicks}, preferencias, perfiles, etc...
+  \item A los usuarios, obteniendo toda la información posible
+  \item Fuentes de datos abiertas (cada vez más), conectadas de nuevas
+    formas
+  \end{itemize}
+\item Sensores pervasivos (posición, conexión, etc.)
+  \item La posibilidad de ``guardarlo todo''
+\end{itemize}
+\end{frame}
+
+
+% [MUSIC] Welcome back. So I wanna talk a little bit about how the term
+% Data Science relates to other fields of science. And, in particular, I
+% wanna introduce this term, eScience, which to a first proximation you can
+% think of is equivalent to Data Science. So while the term eScience is
+% associated with astronomy and oceanography and biology, Data Science has
+% been adopted more in business, but they involve a lot of the same
+% concepts. So let me tell you about what's going on in science. So for
+% thousands of years, scientific inquiry has been empirical, right? You
+% observe the natural world, or in some cases maybe replicate the natural
+% world, in a controlled environment in the laboratory and make
+% observations about that. In the last few hundreds of years, science has
+% accepted theoretical models as a valid method of inquiry, one that is
+% reinforcing empirical methods. So, new theories suggest new experiments,
+% and the theories help explain the observed data you get from the
+% experiments. In the last 50 years or so, high speed computation has
+% emitted an entirely new method of scientific inquiry. You can simulate in
+% the computer phenomena that otherwise you can't observe directly and you
+% can't reproduce in the lab. And even the theoretical models become too
+% complex to solve analytically, using essentially paper and pencil, right?
+% But you can actually start from initial conditions and run the simulation
+% to get a result. So this is, maybe, the what goes on in the interior of
+% stars, or the shift of tectonic plates, or the evolution of the universe,
+% or the effects on the ecology from some species dying out, and so on. So
+% that's fine, so that's three methods of inquiry. But in the last 10 years
+% or so, there's been, arguably, a fourth method of scientific inquiry,
+% which is to acquire massive data sets from instruments or from
+% simulations, and then explore these data sets using new algorithms and
+% new infrastructure. And so eScience is really about massive and complex
+% data, data large enough to require automated or semi-automated analysis.
+% You can't look at it, you can't inspect it directly. Okay. And so the
+% relevant tools here are the same as those for data science, databases,
+% visualization, scale out computing, maybe the NoSQL systems, machine
+% learning techniques, web services, and so on. This idea of the fourth
+% paradigm, there's a book that's in the reading list that you can refer to
+% here. And there's some other articles in the reading list that you can
+% also refer to. The story's been told lots of ways. The way I like to talk
+% about this story is that science has always been about asking questions,
+% but conventionally it was really about querying the world, right? You
+% would sort of have data acquisition activities, experiments or field
+% studies, that were coupled to very specific hypotheses, right? You had
+% the question in mind, first, and went out and collected data. But
+% eScience has really sort of shifted a bit where now you're downloading
+% data en masse, you're downloading the world first, putting some sort of a
+% representation into the computer and then querying that database to test
+% your hypotheses. And so the data can be acquired independent of any
+% specific hypothesis in some cases. Okay. And this is due in part to the
+% cost of data acquisition dropping precipitously thanks to advances in
+% technology, right, so the telescopes you can build now that we'll talk
+% about in the next couple of slides can acquire enormous amounts of data
+% at very high resolution. Okay. And in the life sciences you have sort of
+% laboratory automation and you have high-throughput sequencing. In
+% oceanography, the sensors are getting cheaper. The models, thanks to
+% Moore's law and advances in computing, the simulations you can run are
+% getting bigger and higher resolution and, therefore, producing larger and
+% larger amounts of data, and so on. And so the rate at which data can be
+% produced has far outpaced the rate that we can analyze it or come up with
+% the questions we need to ask about it. Okay. The cost of finding,
+% integrating and analyzing the data, and then communicating the results to
+% others, is the new bottleneck. And this story should sound very similar
+% to what we've been saying data science is all about.
+
+\begin{frame}
+  \frametitle{eScience, Data Science, 4º paradigma}
+  \begin{itemize}
+  \item Tradicionalmente, la ciencia se desarrollaba de forma {\bf
+      empírica}, por observación, o reproduciendo condiciones en el
+    laboratorio
+  \item Desde hace unos cientos de años, los {\bf modelos teóricos} también
+    se han aceptado como una forma de explicar sucesos, y sugerir
+    nuevos experimentos
+  \item En los últimos \~{}50~años, {\bf la simulación} se ha usado para
+    reproducir condiciones especiales o no reproducibles. Para los modelos
+    teóricos que eran demasiado complejos para resolverlos analíticamente,
+    se parte de un estado inicial y se comprueba a dónde se ha llegado
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{4º paradigma (ii)}
+\vspace*{-.5em}
+  \begin{itemize}
+  \item Hoy: {\bf exploración basada en datos}
+    \begin{itemize}
+    \item Unifica teoría, experimentación y simulación
+\item Los datos se capturan por instrumentos o bien se generan por
+  simulaciones
+\item Son procesados por software
+  \item La información (y el conocimiento extraído) se almacenan en un
+    ordenador
+    \item Los científicos analizan los ficheros/bases de datos usando
+     nuevas herramientas estadísticas y de bases de datos capaces de
+     gestionar cada vez más datos (algoritmos distribuidos, NoSQL, etc.)
+   \item En vez de ``{\bf preguntar al mundo}'', se obtienen resultados de
+     combinar conjuntos ``{\bf descargados}'' de datos de maneras no
+     previstas anteriormente
+    \end{itemize}
+  \item  {\bf Jim Gray} ({\em The Fourth Paradigm}, Microsoft
+    Research, 2009)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Huracán Sandy, 2012}
+  \framesubtitle{\url{http://rpubs.com/JoFrhwld/sandy} (Howe, 2013)}
+\includegraphics[width=\textwidth]{img/sandy}
+\end{frame}
+
+\begin{frame}
+  \frametitle{¿Cuándo introdujo Apple el ``Swift''?}
+  \framesubtitle{Una mirada al tag ``swift'' de todas las preguntas de
+    Stackoverflow}
+\includegraphics[width=\textwidth]{img/swift-tag}
+\end{frame}
 
 
 
