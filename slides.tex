@@ -552,12 +552,12 @@ Drew Conway Venn Diagram of Big Data:
       empírica}, por observación, o reproduciendo condiciones en el
     laboratorio
   \item Desde hace unos cientos de años, los {\bf modelos teóricos} también
-    se han aceptado como una forma de explicar sucesos, y sugerir
-    nuevos experimentos
+    se han aceptado como una forma de explicar sucesos, y sugerir nuevos
+    experimentos
   \item En los últimos \~{}50~años, {\bf la simulación} se ha usado para
-    reproducir condiciones especiales o no reproducibles. Para los modelos
-    teóricos que eran demasiado complejos para resolverlos analíticamente,
-    se parte de un estado inicial y se comprueba a dónde se ha llegado
+    reproducir condiciones especiales o no reproducibles. Modelos
+    teóricos demasiado complejos para resolverlos analíticamente,
+    parte de un estado inicial y comprueba a dónde se llega
   \end{itemize}
 \end{frame}
 
@@ -566,23 +566,34 @@ Drew Conway Venn Diagram of Big Data:
 \vspace*{-.5em}
   \begin{itemize}
   \item Hoy: {\bf exploración basada en datos}
-    \begin{itemize}
-    \item Unifica teoría, experimentación y simulación
+\begin{itemize}
+\item Unifica teoría, experimentación y simulación
 \item Los datos se capturan por instrumentos o bien se generan por
   simulaciones
 \item Son procesados por software
   \item La información (y el conocimiento extraído) se almacenan en un
     ordenador
     \item Los científicos analizan los ficheros/bases de datos usando
-     nuevas herramientas estadísticas y de bases de datos capaces de
-     gestionar cada vez más datos (algoritmos distribuidos, NoSQL, etc.)
+     nuevas herramientas estadísticas y bases de datos capaces de
+     gestionar cada vez más datos
    \item En vez de ``{\bf preguntar al mundo}'', se obtienen resultados de
-     combinar conjuntos ``{\bf descargados}'' de datos de maneras no
+     combinar conjuntos ``{\bf descargados}'' de datos de formas no
      previstas anteriormente
     \end{itemize}
-  \item  {\bf Jim Gray} ({\em The Fourth Paradigm}, Microsoft
-    Research, 2009)
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Fourth Paradigm}
+  \framesubtitle{\url{https://twitter.com/aip_publishing/status/856825353645559808}}
+
+  \includegraphics[width=\textwidth]{img/fourth-paradigm2}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Fourth Paradigm}
+\includegraphics[height=12ex]{img/fourth-paradigm} {\bf Jim Gray}. {\em
+    The Fourth Paradigm}, Microsoft Research,~2009
 \end{frame}
 
 \begin{frame}
@@ -607,15 +618,68 @@ Drew Conway Venn Diagram of Big Data:
 \end{frame}
 
 \begin{frame}[allowframebreaks]
+  \frametitle{Big Data -- Caso de éxito: Walmart}
+  \begin{itemize}
+  \item Walmart tiene 20.000 tiendas en 28 países
+  \item En 2015 se propusieron procesar 2,5~Petabytes de información cada
+    hora
+  \item Formó lo que denominó ``Data Café'', que procesaba la base de datos
+    on-line de 40~Petabytes
+  \item Redujeron tiempo de respuesta a problemas de semanas a {\bf 20
+      minutos}
+  \item Por ejemplo, detectaron que no se vendía un producto que sí se
+    vendía en otras sucursales \ra{} Los empleados habían olvidado ponerlo
+    en las estanterías
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Big Data -- Caso de éxito: CERN}
+\begin{itemize}
+\item Sólo el {\em Large Hadron Collider} (LHC) genera 30~Petabytes al año
+\item Los sensores del LHC detectan cientos de millones de colisiones de
+  partículas
+\item Hay que procesar esos datos para encontrar patrones de colisión para
+  detectar partículas
+\item 300~GB de datos por segundo \ra{} 300~MB/s filtrados
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Big Data -- Caso de éxito: Netflix}
+\begin{itemize}
+\item Inicialmente sólo tenía datos que asociaban un cliente, una película
+  alquilada, la calificación y la fecha
+\item Conforme se convirtió en {\em streaming}, pudo recopilar un conjunto
+  mayor de datos
+\item Añadió {\em tags\/} a cada película y episodio, lo que permitió
+  generar contenido que, previsiblemente, iba a ser bien recibido
+\item Oracle, después NoSQL y Cassandra
+\item También utiliza tecnologías de Big Data como Hadoop, Pig y Hive (más
+  después)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Big Data -- Casos de éxito}
+  Y además: {\bf Rolls-Royce}, {\bf Shell}, {\bf Apixio}, {\bf Lotus F1
+    Team}, {\bf Pendleton \& Son Butchers}, {\bf US Olympic Women’s Cycling
+    Team}, {\bf ZSL}, {\bf Facebook}, {\bf John Deere}, {\bf Royal Bank of
+    Scotland}, {\bf LinkedIn}, {\bf Microsoft}, {\bf Acxiom}, {\bf US
+    Immigration And Customs}, {\bf Nest}, {\bf GE}, {\bf Etsy}, {\bf
+    Narrative Science}, {\bf BBC}, {\bf Milton Keynes}, {\bf Palantir},
+  {\bf Airbnb}, {\bf Sprint}, {\bf Dickey’s Barbecue Pit}, {\bf Caesars},
+  {\bf Fitbit}, {\bf Ralph Lauren}, {\bf Zynga}, {\bf Autodesk}, {\bf Walt
+    Disney Parks and Resorts}, {\bf Experian}, {\bf Transport for London},
+  {\bf The US Government}, {\bf IBM Watson}, {\bf Google}, {\bf Terra
+    Seismic}, {\bf Apple}, {\bf Twitter}, {\bf Uber}, {\bf Electronic
+    Arts}, {\bf Kaggle}, {\bf Amazon}, etc.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
   \frametitle{Big Data}
   \begin{itemize}
-  \item Cuarto paradigma
-  \item Ejemplos de big data tomando fuentes dispares e inicialmente no
-    conectadas
-  \item Campos de aplicación: desde empresas hasta investigación biomédica,
-    IoT
-  \item Muchos más datos, algoritmos mejorados, hardware mejorado, etc.
-    Machine Learning, Data Science
   \item Escalabilidad, concurrencia, distribución
   \item Map-Reduce
   \item Ecosistema Apache: Zookeeper, Hadoop, HBase, Spark, Hive, Impala
@@ -624,7 +688,195 @@ Drew Conway Venn Diagram of Big Data:
   \end{itemize}
 \end{frame}
 
-\section{Introducción a los sistemas NoSQL}
+
+\section{La importancia de la escalabilidad}
+
+\pgfdeclareimage[height=2.7em]{sobremesa}{img/server1}%img/servidor}
+\pgfdeclareimage[height=.7em]{switch}{img/switch1}%img/switch}
+
+\newsavebox{\network}
+
+\begin{lrbox}{\network}
+\begin{tikzpicture}
+  \foreach \x in {0,...,5}
+    \foreach \y in {0,...,3}
+    \node [] (\x\y) at (1.5*\x,1.5*\y) {\pgfuseimage{sobremesa}};
+
+% switch
+\node[inner sep=0pt] (switch) at (1.5*2.5, 1.5*4) {\pgfuseimage{switch}};
+
+\begin{scope}[on background layer]
+  \foreach \x in {0,...,5}
+    \foreach \y in {0,...,3}
+      \draw[gray!50] (switch)--(\x\y) ;
+\end{scope}
+\end{tikzpicture}
+\end{lrbox}
+
+\begin{frame}
+\frametitle{Cambio de perspectiva: Red}
+
+\begin{overlayarea}{\textwidth}{.8\textheight}
+\only<1->{%
+\begin{center}
+\usebox{\network}
+\end{center}%
+}%
+\only<2>{
+\vspace*{-10em}
+\begin{block}{Procesamiento distribuido}
+\begin{itemize}
+\item Necesidad de {\bf paralelización máxima}
+\item {\bf Escalabilidad}
+\item Explotación de la {\bf localidad de los datos}:
+  \begin{itemize}
+  \item Datos producidos en cada nodo se utilizan en siguientes iteraciones
+  \item Cada nodo puede hacer de servidor para recibir datos
+\end{itemize}
+\end{itemize}
+\end{block}
+}%
+\only<3>{
+\vspace*{-9em}
+\begin{block}{Procesamiento distribuido}
+\begin{itemize}
+\item Vuelta al modelo funcional inherentemente paralelo: (e.g. {\bf
+    Map-Reduce})
+\item Almacenamiento distribuido: (e.g. {\bf HDFS})
+\item Coordinación distribuida: (e.g. {\bf Zookeeper})
+\end{itemize}
+\end{block}%
+}%
+\end{overlayarea}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks,fragile]
+\frametitle{Map-Reduce}
+
+%  {\bf Map-Reduce} es el principal mecanismo de búsqueda y transformación en
+%  BBDD NoSQL. Tiene su origen en {\bf lenguajes funcionales}:
+%   \begin{block}{{\tt map()}}
+%     Ejecuta una misma función sobre todos los elementos de un conjunto
+%   \end{block}
+%   \begin{block}{{\tt reduce()}}
+%     Procesa un conjunto de valores para producir un valor de salida
+%   \end{block}
+
+% \framebreak
+
+\begin{itemize}
+
+\item Map-Reduce combina ambas operaciones:
+\begin{itemize}
+\item Una misma operación {\tt map()} a cada dato residente en un nodo se
+  realiza de forma paralela en {\bf todos} los nodos simultáneamente
+\item Con los resultados parciales de cada nodo, una función {\tt reduce()}
+  genera un resultado (o un conjunto de resultados) final
+\item Hay un proceso intermedio de {\em shuffle} para agrupar valores
+  relacionados antes del {\tt reduce()}
+\item Resultados parciales en el mismo nodo (localidad) $\Rightarrow$
+  procesamientos {\bf en cadena}
+\end{itemize}
+\end{itemize}
+
+
+\framebreak
+
+\centering\includegraphics[width=\textwidth]{img/MapReduceWordcount}
+(de \url{http://www.milanor.net/blog/an-example-of-mapreduce-with-rmr2/})
+\end{frame}
+
+\begin{frame}
+\frametitle{Map-Reduce en entornos Big Data}
+\begin{itemize}
+  \item Entrada \ra{} siempre pares $<key,value>$
+
+  \item {\tt map()} produce otro conjunto de valores
+    $\{<key1,value1>,<key2,value2>,...\}$
+
+\item {\em Shuffle} agrupa los valores con la misma clave:
+\begin{displaymath}
+\{<key1,\{val1,val3,...\}>,<key2,\{val2,val4,...\}>,...\}
+\end{displaymath}
+
+\item {\tt reduce()} procesa cada lista de valores con la misma clave, y
+  produce otros elementos $<key',value'>$
+
+\item Hay procesamientos difíciles de expresar en Map-Reduce $\Rightarrow$
+  varias operaciones M/R {\bf en cadena}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hadoop}
+\includegraphics[width=\textwidth]{img/hadoop}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hadoop -- YARN}
+ \framesubtitle{\url{http://bigdataanalyticsnews.com/hadoop-yarn-adds-application-threads-big-data-users/}}
+  \includegraphics[width=\textwidth]{img/hadoop-yarn}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{HDFS}
+HDFS posee una arquitectura distribuida:
+    \begin{itemize}
+    \item {\bf NameNode} -- Almacena información sobre qué partes
+      ({\bfseries\itshape Chunks}) tiene cada fichero, y dónde están
+      almacenadas (y replicadas)
+    \item {\bf Secondary Namenode} -- Sustituto del {\bf NameNode} en caso
+      de fallo
+    \item {\bf DataNode}s -- Almacenan los {\em chunks\/} de cada fichero.
+      Cada {\em chunk} puede estar replicado un número de veces,
+      dependiendo de la configuración de HDFS
+    \item {\bf Zookeeper} -- Se encarga de mantener una consistencia de
+      {\em clúster} (saber qué nodos hay conectados y activos) y
+      sincronización de datos
+    \end{itemize}
+  \includegraphics[width=\textwidth]{img/hdfs1}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+%   \frametitle{Map-Reduce como generalización de consultas}
+
+%   {\bf Ejemplo}: Imagínese un biólogo marino que hace anotaciones de cada
+%   animal que ve en el océano, y quiere saber cuántos tiburones ha visto por
+%   mes:
+
+%   \begin{lstlisting}[language=SQL]
+% SELECT MONTH(observation_timestamp) AS observation_month,
+%        sum(num_animals) AS total_animals
+% FROM observations
+% WHERE family = 'Sharks'
+% GROUP BY observation_month;
+% \end{lstlisting}
+
+%   \framebreak
+
+% MongoDB con el API de MapReduce:
+% \begin{lstlisting}[language=Javascript,basicstyle=\footnotesize\tt]
+% db.observations.mapReduce(
+%   function map() {
+%     var year = this.observationTimestamp.getFullYear();
+%     var month = this.observationTimestamp.getMonth() + 1;
+%     emit(year + "-" + month, this.numAnimals);
+%   },
+%   function reduce(key, values) {
+%     return Array.sum(values);
+%   },
+%   {
+%     query: { family: "Sharks" },
+%     out: "monthlySharkReport"
+%   });
+% \end{lstlisting}
+
+% \end{frame}
+
+\section{Introducción a NoSQL}
 
 \begin{frame}
   \frametitle{NoSQL}
@@ -774,213 +1026,6 @@ Drew Conway Venn Diagram of Big Data:
 
 
 
-\subsection{La importancia de la escalabilidad}
-
-\pgfdeclareimage[height=2.7em]{sobremesa}{img/server1}%img/servidor}
-\pgfdeclareimage[height=.7em]{switch}{img/switch1}%img/switch}
-
-\newsavebox{\network}
-
-\begin{lrbox}{\network}
-\begin{tikzpicture}
-  \foreach \x in {0,...,5}
-    \foreach \y in {0,...,3}
-    \node [] (\x\y) at (1.5*\x,1.5*\y) {\pgfuseimage{sobremesa}};
-
-% switch
-\node[inner sep=0pt] (switch) at (1.5*2.5, 1.5*4) {\pgfuseimage{switch}};
-
-\begin{scope}[on background layer]
-  \foreach \x in {0,...,5}
-    \foreach \y in {0,...,3}
-      \draw[gray!50] (switch)--(\x\y) ;
-\end{scope}
-\end{tikzpicture}
-\end{lrbox}
-
-\begin{frame}
-\frametitle{Cambio de perspectiva: Red}
-
-\begin{overlayarea}{\textwidth}{.8\textheight}
-\only<1->{%
-\begin{center}
-\usebox{\network}
-\end{center}%
-}%
-\only<2>{
-\vspace*{-13em}
-  \begin{block}{Almacenamiento distribuido}
-    \begin{itemize}
-    \item Desde los 90's: Clústers/NOC/COW: procesamiento masivamente
-      paralelo
-\begin{center}
-{\color{red}SIN EMBARGO...}
-\end{center}
-\item Almacenamiento no distribuido
-\item Ahora los nodos $\Rightarrow$ también {\bf almacenamiento}
-\item Minimizar el verdadero cuello de botella: {\bf trasiego de
-    información por la red}
-    \end{itemize}
-
-  \end{block}%
-}%
-\only<3>{
-\vspace*{-10em}
-\begin{block}{Procesamiento distribuido}
-\begin{itemize}
-\item Necesidad de {\bf paralelización máxima}
-\item {\bf Escalabilidad}
-\item Explotación de la {\bf localidad de los datos}:
-  \begin{itemize}
-  \item Datos producidos en cada nodo se utilizan en siguientes iteraciones
-  \item Cada nodo puede hacer de servidor para recibir datos
-\end{itemize}
-\end{itemize}
-\end{block}
-}%
-\only<4>{
-\vspace*{-9em}
-\begin{block}{Procesamiento distribuido}
-\begin{itemize}
-\item Vuelta al modelo funcional inherentemente paralelo: (e.g. {\bf
-    Map-Reduce})
-\item Almacenamiento distribuido: (e.g. {\bf HDFS})
-\item Coordinación distribuida: (e.g. {\bf Zookeeper})
-\end{itemize}
-\end{block}%
-}%
-\only<5>{
-\vspace*{-13em}
-\begin{block}{Modelo de datos}
-\begin{itemize}
-  \item El modelo relacional limita a tablas con valores primitivos y
-    relaciones {\em Primary Key\/}/{\em Foreign Key}
-  \item Pero en programación se utilizan {\bf listas}, {\bf arrays}, {\bf
-      tipos de datos compuestos} ({\color{red}{\em gap\/} semántico})
-  \item ACID es {\bf muy compleja y costosa} en ambientes distribuidos
-    (quizá {\bf no necesaria} en algunas aplicaciones)
-\end{itemize}
-\end{block}%
-}%
-\only<6>{
-\vspace*{-10em}
-\begin{block}{Modelo de datos (ii)}
-\begin{itemize}
-\item ¿Si se pudiera ver como un {\bf GRAN ARRAY}?
-\begin{itemize}
-\item Cada nodo almacenaría una parte del array
-\item Búsqueda aleatoria {\bf muy rápida} (árboles B)
-%\item Uso de {\bf filtros de Bloom}
-\item Uso de {\bf objetos complejos} (p. ej. {\bf documentos JSON}),
-  para mantener la {\bf localidad espacial de datos relacionados} (+
-  después)
-\item Transacciones limitadas al {\bf objeto complejo}
-\end{itemize}
-\end{itemize}
-\end{block}%
-}%
-\end{overlayarea}
-\end{frame}
-
-
-% \begin{frame}[allowframebreaks,fragile]
-% \frametitle{Map-Reduce}
-
-%  {\bf Map-Reduce} es el principal mecanismo de búsqueda y transformación en
-%  BBDD NoSQL. Tiene su origen en {\bf lenguajes funcionales}:
-%   \begin{block}{{\tt map()}}
-%     Ejecuta una misma función sobre todos los elementos de un conjunto
-%   \end{block}
-%   \begin{block}{{\tt reduce()}}
-%     Procesa un conjunto de valores para producir un valor de salida
-%   \end{block}
-
-% \framebreak
-
-% \begin{itemize}
-
-% \item Map-Reduce combina ambas operaciones:
-% \begin{itemize}
-% \item Una misma operación {\tt map()} a cada dato residente en un nodo se
-%   realiza de forma paralela en {\bf todos} los nodos simultáneamente
-% \item Con los resultados parciales de cada nodo, una función {\tt reduce()}
-%   genera un resultado (o un conjunto de resultados) final
-% \item Hay un proceso intermedio de {\em shuffle} para agrupar valores
-%   relacionados antes del {\tt reduce()}
-% \item Resultados parciales en el mismo nodo (localidad) $\Rightarrow$
-%   procesamientos {\bf en cadena}
-% \end{itemize}
-% \end{itemize}
-
-% % \framebreak
-
-% % \centering\includegraphics[width=.9\textwidth]{img/mapreduce1}
-
-% \framebreak
-
-% \centering\includegraphics[width=\textwidth]{img/MapReduceWordcount}
-% (de \url{http://www.milanor.net/blog/an-example-of-mapreduce-with-rmr2/})
-% \end{frame}
-
-% \begin{frame}
-% \frametitle{Map-Reduce en entornos Big Data}
-% \begin{itemize}
-%   \item Entrada \ra{} siempre pares $<key,value>$
-
-%   \item {\tt map()} produce otro conjunto de valores
-%     $\{<key1,value1>,<key2,value2>,...\}$
-
-% \item {\em Shuffle} agrupa los valores con la misma clave:
-% \begin{displaymath}
-% \{<key1,\{val1,val3,...\}>,<key2,\{val2,val4,...\}>,...\}
-% \end{displaymath}
-
-% \item {\tt reduce()} procesa cada lista de valores con la misma clave, y
-%   produce otros elementos $<key',value'>$
-
-% \item Hay procesamientos difíciles de expresar en Map-Reduce $\Rightarrow$
-%   varias operaciones M/R {\bf en cadena}
-%   \end{itemize}
-
-% \end{frame}
-
-
-% \begin{frame}[fragile,allowframebreaks]
-%   \frametitle{Map-Reduce como generalización de consultas}
-
-%   {\bf Ejemplo}: Imagínese un biólogo marino que hace anotaciones de cada
-%   animal que ve en el océano, y quiere saber cuántos tiburones ha visto por
-%   mes:
-
-%   \begin{lstlisting}[language=SQL]
-% SELECT MONTH(observation_timestamp) AS observation_month,
-%        sum(num_animals) AS total_animals
-% FROM observations
-% WHERE family = 'Sharks'
-% GROUP BY observation_month;
-% \end{lstlisting}
-
-%   \framebreak
-
-% MongoDB con el API de MapReduce:
-% \begin{lstlisting}[language=Javascript,basicstyle=\footnotesize\tt]
-% db.observations.mapReduce(
-%   function map() {
-%     var year = this.observationTimestamp.getFullYear();
-%     var month = this.observationTimestamp.getMonth() + 1;
-%     emit(year + "-" + month, this.numAnimals);
-%   },
-%   function reduce(key, values) {
-%     return Array.sum(values);
-%   },
-%   {
-%     query: { family: "Sharks" },
-%     out: "monthlySharkReport"
-%   });
-% \end{lstlisting}
-
-% \end{frame}
-
 
 % \begin{frame}[allowframebreaks]
 %   \frametitle{Tecnologías habilitadoras de HBase}
@@ -1005,24 +1050,6 @@ Drew Conway Venn Diagram of Big Data:
 % \end{itemize}
 % \end{frame}
 
-% \begin{frame}[allowframebreaks]
-%   \frametitle{HDFS}
-% HDFS posee una arquitectura distribuida:
-%     \begin{itemize}
-%     \item {\bf NameNode} -- Almacena información sobre qué partes
-%       ({\bfseries\itshape Chunks}) tiene cada fichero, y dónde están
-%       almacenadas (y replicadas)
-%     \item {\bf Secondary Namenode} -- Sustituto del {\bf NameNode} en caso
-%       de fallo
-%     \item {\bf DataNode}s -- Almacenan los {\em chunks\/} de cada fichero.
-%       Cada {\em chunk} puede estar replicado un número de veces,
-%       dependiendo de la configuración de HDFS
-%     \item {\bf Zookeeper} -- Se encarga de mantener una consistencia de
-%       {\em clúster} (saber qué nodos hay conectados y activos) y
-%       sincronización de datos
-%     \end{itemize}
-%   \includegraphics[width=\textwidth]{img/hdfs1}
-% \end{frame}
 
 % \subsection{Bases de Datos de Grafos}
 
