@@ -592,7 +592,7 @@ Drew Conway Venn Diagram of Big Data:
 
 \begin{frame}
   \frametitle{The Fourth Paradigm}
-\includegraphics[height=12ex]{img/fourth-paradigm} {\bf Jim Gray}. {\em
+  \includegraphics[height=12ex]{img/fourth-paradigm}\\ {\bf Jim Gray}. {\em
     The Fourth Paradigm}, Microsoft Research,~2009
 \end{frame}
 
@@ -676,19 +676,6 @@ Drew Conway Venn Diagram of Big Data:
     Arts}, {\bf Kaggle}, {\bf Amazon}, etc.
 \end{frame}
 
-
-\begin{frame}[allowframebreaks]
-  \frametitle{Big Data}
-  \begin{itemize}
-  \item Escalabilidad, concurrencia, distribución
-  \item Map-Reduce
-  \item Ecosistema Apache: Zookeeper, Hadoop, HBase, Spark, Hive, Impala
-  \item Bases de datos NoSQL
-  \item Arquitectura Lambda
-  \end{itemize}
-\end{frame}
-
-
 \section{La importancia de la escalabilidad}
 
 \pgfdeclareimage[height=2.7em]{sobremesa}{img/server1}%img/servidor}
@@ -766,18 +753,15 @@ Drew Conway Venn Diagram of Big Data:
 % \framebreak
 
 \begin{itemize}
-
-\item Map-Reduce combina ambas operaciones:
-\begin{itemize}
-\item Una misma operación {\tt map()} a cada dato residente en un nodo se
-  realiza de forma paralela en {\bf todos} los nodos simultáneamente
+\item Se aplica una misma operación {\tt map()} a cada dato residente en un
+  nodo se realiza de forma paralela en {\bf todos} los nodos
+  simultáneamente
 \item Con los resultados parciales de cada nodo, una función {\tt reduce()}
   genera un resultado (o un conjunto de resultados) final
 \item Hay un proceso intermedio de {\em shuffle} para agrupar valores
   relacionados antes del {\tt reduce()}
 \item Resultados parciales en el mismo nodo (localidad) $\Rightarrow$
   procesamientos {\bf en cadena}
-\end{itemize}
 \end{itemize}
 
 
@@ -787,26 +771,34 @@ Drew Conway Venn Diagram of Big Data:
 (de \url{http://www.milanor.net/blog/an-example-of-mapreduce-with-rmr2/})
 \end{frame}
 
-\begin{frame}
-\frametitle{Map-Reduce en entornos Big Data}
-\begin{itemize}
-  \item Entrada \ra{} siempre pares $<key,value>$
+% \begin{frame}
+% \frametitle{Map-Reduce en entornos Big Data}
+% \begin{itemize}
+%   \item Entrada \ra{} siempre pares $<key,value>$
 
-  \item {\tt map()} produce otro conjunto de valores
-    $\{<key1,value1>,<key2,value2>,...\}$
+%   \item {\tt map()} produce otro conjunto de valores
+%     $\{<key1,value1>,<key2,value2>,...\}$
 
-\item {\em Shuffle} agrupa los valores con la misma clave:
-\begin{displaymath}
-\{<key1,\{val1,val3,...\}>,<key2,\{val2,val4,...\}>,...\}
-\end{displaymath}
+% \item {\em Shuffle} agrupa los valores con la misma clave:
+% \begin{displaymath}
+% \{<key1,\{val1,val3,...\}>,<key2,\{val2,val4,...\}>,...\}
+% \end{displaymath}
 
-\item {\tt reduce()} procesa cada lista de valores con la misma clave, y
-  produce otros elementos $<key',value'>$
+% \item {\tt reduce()} procesa cada lista de valores con la misma clave, y
+%   produce otros elementos $<key',value'>$
 
-\item Hay procesamientos difíciles de expresar en Map-Reduce $\Rightarrow$
-  varias operaciones M/R {\bf en cadena}
-  \end{itemize}
+% \item Hay procesamientos difíciles de expresar en Map-Reduce $\Rightarrow$
+%   varias operaciones M/R {\bf en cadena}
+%   \end{itemize}
 
+% \end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Map-Reduce aplicado a la empresa}
+  \framesubtitle{NoSQL Distilled. Sadalage, Fowler, Addison-Wesley, 2012}
+  \includegraphics[width=\textwidth]{img/mapreduce1}
+  \framebreak
+  \includegraphics[width=\textwidth]{img/mapreduce2}
 \end{frame}
 
 \begin{frame}
@@ -823,20 +815,20 @@ Drew Conway Venn Diagram of Big Data:
 
 \begin{frame}[allowframebreaks]
   \frametitle{HDFS}
-HDFS posee una arquitectura distribuida:
-    \begin{itemize}
-    \item {\bf NameNode} -- Almacena información sobre qué partes
-      ({\bfseries\itshape Chunks}) tiene cada fichero, y dónde están
-      almacenadas (y replicadas)
-    \item {\bf Secondary Namenode} -- Sustituto del {\bf NameNode} en caso
-      de fallo
-    \item {\bf DataNode}s -- Almacenan los {\em chunks\/} de cada fichero.
-      Cada {\em chunk} puede estar replicado un número de veces,
-      dependiendo de la configuración de HDFS
-    \item {\bf Zookeeper} -- Se encarga de mantener una consistencia de
-      {\em clúster} (saber qué nodos hay conectados y activos) y
-      sincronización de datos
-    \end{itemize}
+% HDFS posee una arquitectura distribuida:
+%     \begin{itemize}
+%     \item {\bf NameNode} -- Almacena información sobre qué partes
+%       ({\bfseries\itshape Chunks}) tiene cada fichero, y dónde están
+%       almacenadas (y replicadas)
+%     \item {\bf Secondary Namenode} -- Sustituto del {\bf NameNode} en caso
+%       de fallo
+%     \item {\bf DataNode}s -- Almacenan los {\em chunks\/} de cada fichero.
+%       Cada {\em chunk} puede estar replicado un número de veces,
+%       dependiendo de la configuración de HDFS
+%     \item {\bf Zookeeper} -- Se encarga de mantener una consistencia de
+%       {\em clúster} (saber qué nodos hay conectados y activos) y
+%       sincronización de datos
+%     \end{itemize}
   \includegraphics[width=\textwidth]{img/hdfs1}
 \end{frame}
 
@@ -894,22 +886,17 @@ HDFS posee una arquitectura distribuida:
 \begin{frame}
   \frametitle{NoSQL}
 \begin{itemize}
-% \item Sobre los \~{}2010s, se renueva la búsqueda de la escalabilidad, con
-%   el abaratamiento del {\em hardware}
-% \item Se {\bf diversifican los problemas}, la inclusión del {\bf análisis
-%     de todos los datos disponibles por parte de las empresas}
-% \begin{itemize}
-% \item incluso de algunos que no se había pensado usar, p. ej. {\em
-%     clickstreams\/}), {\bf publicidad a la carta}, etc.
-% \end{itemize}
-\item {\bf NoSQL} \ra{} {\em hashtag\/} llamativo que se
-  eligió para una conferencia en~2009 (Johan Oskarsson de Last.fm)
-\item Ahora se asocia a cientos de bases de datos diferentes,
-  que se han clasificado en varios tipos (las veremos después),
-  caracterizadas por {\bf no usar SQL} como modelo de datos
-\item {\bf NoSQL} \ra{} {\bfseries\itshape Not Only SQL} (no sólo SQL)
-% \item Big Data \ra{} hay una variedad de fuentes de datos ({\bf persistencia
-%     polígota})
+\item Bases de datos {\bf orientadas a la escalabilidad}
+\item Normalmente {\bf de código abierto}
+\item {\bf No utilizan SQL} como lenguaje de consulta
+\item Utilizan alguna variación de {\bf Map-Reduce}
+\item Proponen un modelo de datos más flexible que el relacional
+\item Se definen varios tipos:
+  \begin{itemize}
+  \item Documentales
+  \item Columnares
+  \item Grafos
+  \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -1166,28 +1153,35 @@ HDFS posee una arquitectura distribuida:
 % \end{lstlisting}
 % \end{frame}
 
+\begin{frame}
+  \frametitle{Grafos}
+  \framesubtitle{NoSQL Distilled. Sadalage, Fowler, Addison-Wesley, 2012}
+\centering\includegraphics[width=.8\textwidth]{img/graph_example}
+\end{frame}
+
 \begin{frame}[fragile,allowframebreaks]
-  \frametitle{Ejemplo de datos y consulta en Neo4J}
-\begin{block}{}
+  \frametitle{Datos y consultas en Neo4J}
+\begin{block}{Datos:}
 \begin{lstlisting}
 CREATE
   (NAmerica:Location {name:'North America', type:'continent'}),
-  (USA:Location {name:'United States', type:'country' }),
-  (Idaho:Location {name:'Idaho', type:'state' }),
+  (USA:Location {name:'United States', type:'country'}),
+  (Idaho:Location {name:'Idaho', type:'state'}),
+
   (Lucy:Person {name:'Lucy' }),
-  (Idaho)-[:WITHIN]->(USA)-[:WITHIN]-> (NAmerica),
+
+  (Idaho)-[:WITHIN]->(USA)-[:WITHIN]->(NAmerica),
   (Lucy) -[:BORN_IN]-> (Idaho)
 \end{lstlisting}
 \end{block}
 
 \framebreak
 
-Y de consulta:
-\begin{block}{}
+\begin{block}{Consulta:}
 \begin{lstlisting}
 MATCH
-(person) -[:BORN_IN]-> () -[:WITHIN*0..]-> (us:Location {name:'United States'}),
-(person) -[:LIVES_IN]-> () -[:WITHIN*0..]-> (eu:Location {name:'Europe'})
+(person)-[:BORN_IN]->()-[:WITHIN*0..]->(us:Location {name:'United States'}),
+(person)-[:LIVES_IN]->()-[:WITHIN*0..]->(eu:Location {name:'Europe'})
 RETURN person.name
 \end{lstlisting}
 \end{block}
