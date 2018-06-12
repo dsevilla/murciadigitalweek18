@@ -880,6 +880,11 @@ HDFS posee una arquitectura distribuida:
 
 \begin{frame}
   \frametitle{NoSQL}
+  \includegraphics[width=\textwidth]{img/nosql}
+\end{frame}
+
+\begin{frame}
+  \frametitle{NoSQL}
 \begin{itemize}
 % \item Sobre los \~{}2010s, se renueva la búsqueda de la escalabilidad, con
 %   el abaratamiento del {\em hardware}
@@ -899,6 +904,56 @@ HDFS posee una arquitectura distribuida:
 %     polígota})
   \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{Representación relacional de un CV}
+\framesubtitle{Kleppmann, 2016. \emph{Designing Data Intensive Applications}}
+  \centering\includegraphics[height=.81\textheight]{img/gates}
+\end{frame}
+
+\begin{frame}[plain,fragile]
+%  \frametitle{CV como un documento}
+\begin{lstlisting}[language=json,basicstyle=\tiny\tt]
+{
+  "user_id": 251,
+  "first_name": "Bill",
+  "last_name": "Gates",
+  "summary": "Co-chair of the Bill & Melinda Gates... Active blogger.",
+  "region_id": "us:91",
+  "industry_id": 131,
+  "photo_url": "/p/7/000/253/05b/308dd6e.jpg",
+  "positions": [
+    {
+      "job_title": "Co-chair",
+      "organization": "Bill & Melinda Gates Foundation"
+    },
+    {
+      "job_title": "Co-founder, Chairman",
+      "organization": "Microsoft"
+    }
+  ],
+  "education": [
+    {
+      "school_name": "Harvard University",
+      "start": 1973,
+      "end": 1975
+    },
+    {
+      "school_name": "Lakeside School, Seattle",
+      "start": null,
+      "end": null
+    }
+  ],
+  "contact_info": {
+    "blog": "http://thegatesnotes.com",
+    "twitter": "http://twitter.com/BillGates"
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+
 
 % \begin{frame}
 %   \frametitle{NoSQL}
@@ -1103,36 +1158,36 @@ HDFS posee una arquitectura distribuida:
 % \end{lstlisting}
 % \end{frame}
 
-% \begin{frame}[fragile,allowframebreaks]
-%   \frametitle{Ejemplo de datos y consulta en Neo4J}
-% \begin{block}{}
-% \begin{lstlisting}
-% CREATE
-%   (NAmerica:Location {name:'North America', type:'continent'}),
-%   (USA:Location {name:'United States', type:'country' }),
-%   (Idaho:Location {name:'Idaho', type:'state' }),
-%   (Lucy:Person {name:'Lucy' }),
-%   (Idaho)-[:WITHIN]->(USA)-[:WITHIN]-> (NAmerica),
-%   (Lucy) -[:BORN_IN]-> (Idaho)
-% \end{lstlisting}
-% \end{block}
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{Ejemplo de datos y consulta en Neo4J}
+\begin{block}{}
+\begin{lstlisting}
+CREATE
+  (NAmerica:Location {name:'North America', type:'continent'}),
+  (USA:Location {name:'United States', type:'country' }),
+  (Idaho:Location {name:'Idaho', type:'state' }),
+  (Lucy:Person {name:'Lucy' }),
+  (Idaho)-[:WITHIN]->(USA)-[:WITHIN]-> (NAmerica),
+  (Lucy) -[:BORN_IN]-> (Idaho)
+\end{lstlisting}
+\end{block}
 
-% \framebreak
+\framebreak
 
-% Y de consulta:
-% \begin{block}{}
-% \begin{lstlisting}
-% MATCH
-% (person) -[:BORN_IN]-> () -[:WITHIN*0..]-> (us:Location {name:'United States'}),
-% (person) -[:LIVES_IN]-> () -[:WITHIN*0..]-> (eu:Location {name:'Europe'})
-% RETURN person.name
-% \end{lstlisting}
-% \end{block}
+Y de consulta:
+\begin{block}{}
+\begin{lstlisting}
+MATCH
+(person) -[:BORN_IN]-> () -[:WITHIN*0..]-> (us:Location {name:'United States'}),
+(person) -[:LIVES_IN]-> () -[:WITHIN*0..]-> (eu:Location {name:'Europe'})
+RETURN person.name
+\end{lstlisting}
+\end{block}
 
-% (con esta consulta tan cercana al lenguaje natural, estamos buscando los
-% emigrantes de EEUU en Europa)
+(con esta consulta tan cercana al lenguaje natural, estamos buscando los
+emigrantes de EEUU en Europa)
 
-% \end{frame}
+\end{frame}
 
 
 % \begin{frame}[allowframebreaks]
